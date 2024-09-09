@@ -7,8 +7,7 @@ import { RootStackParamList } from '../../types';
 
 type NavigationProp = StackNavigationProp<RootStackParamList>;
 // Componente de tela de login
-const LoginPage = () => {
-    
+const Esqueceu = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -16,7 +15,6 @@ const LoginPage = () => {
 
   // Função de login
   const login = async () => {
-    
     try {
       const response = await fetch('http://localhost:3000/v0/singin', {
         method: 'POST',
@@ -39,7 +37,7 @@ const LoginPage = () => {
       console.error('Erro:', error);
     }
   };
-  const img = require('../../assets/images/Mobilelogincuate.png')
+  const img = require('../../assets/images/Forgotpassword.png')
   return (
     <View style={styles.container}>
       <Text style={styles.title}>MindDoc+</Text>
@@ -47,6 +45,9 @@ const LoginPage = () => {
         source={img}
         style={styles.image}
       />
+      <Text style={styles.title1}>Insira primeiro o seu e-mail</Text>
+      <Text style={styles.title2}>Você receberá uma mensagem com o link para criar sua nova senha</Text>
+      
       <TextInput
         style={styles.input}
         placeholder="Email"
@@ -54,33 +55,17 @@ const LoginPage = () => {
         value={email}
         onChangeText={setEmail}
       />
-      <TextInput
-        style={styles.input}
-        placeholder="Password"
-        secureTextEntry={!passwordVisible}
-        value={password}
-        onChangeText={setPassword}
+      
+      <Button 
+      title="Enviar" 
+      onPress={login}
+      color={'#000'}
       />
-      <TouchableOpacity onPress={() => setPasswordVisible(!passwordVisible)}>
-        <Text style={styles.togglePassword}>
-        {passwordVisible ? 'Esconder a senha' : 'Mostrar a senha'}
-        </Text>
+      
+      <TouchableOpacity>
+        <Text style={styles.title3}>Ainda não tem conta? Faça seu cadastro!</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={(
-
-) => navigation.navigate('Esqueceu')}>
-  <Text style={styles.forgotPasswordText}>Esqueceu a senha?</Text>
-</TouchableOpacity>
-      <Button title="Entrar" onPress={login} color="#000" />
-      <View style={styles.dividerContainer}>
-        <View style={styles.divider} />
-        <Text style={styles.or}>ou</Text>
-        <View style={styles.divider} />
-      </View>
-      <TouchableOpacity style={styles.googleButton} onPress={() => console.log('entrei pelo google')}>
-        
-        <Text style={styles.googleButtonText}>Continuar com o Google</Text>
-      </TouchableOpacity>
+    
     </View>
   );
 };
@@ -99,6 +84,34 @@ const styles = StyleSheet.create({
     color: '#000',
     marginBottom: 20,
   },
+  title1: {
+    fontSize: 26,
+    fontWeight: '400',
+    color: '#000',
+    marginBottom: 20,
+  },
+  title2: {
+    width:350,
+    alignItems: 'center',
+    fontSize: 16,
+    fontWeight: '300',
+    color: '#000',
+    marginBottom: 40,
+    marginTop:30,
+
+    
+  },
+  title3: {
+   
+    alignItems: 'center',
+    fontSize: 16,
+    fontWeight: '300',
+    color: '#000',
+    marginBottom: 40,
+    marginTop:30,
+
+    
+  },
   image: {
     width: 320,
     height: 320,
@@ -112,45 +125,9 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     paddingHorizontal: 8,
   },
-  togglePassword: {
-    color: 'blue',
-    marginBottom: 10,
-  },
-  forgotPasswordText: {
-    color: 'black',
-    fontSize: 13,
-    fontWeight: '300',
-    alignSelf: 'flex-end',
-    marginBottom: 20,
-  },
-  dividerContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 20,
-  },
-  divider: {
-    width: 130,
-    height: 1,
-    backgroundColor: '#D9D9D9',
-  },
-  or: {
-    marginHorizontal: 20,
-  },
-  googleButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#CCCCCC',
-    padding: 10,
-    borderRadius: 8,
-    width: 320,
-  },
-  googleButtonText: {
-    color: '#000',
-    fontWeight: '700',
-    fontSize: 14,
-    marginLeft: 10,
-  },
+  button: {
+   
+  }
 });
 
-export default LoginPage;
+export default Esqueceu;

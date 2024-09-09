@@ -7,6 +7,7 @@ import Home from './app/Home/Home';
 import Cadastro from './app/Cadastro/Cadastro';
 import { RootStackParamList } from './types'; // Importando o tipo
 import { NavigationContainer } from '@react-navigation/native';
+import Esqueceu from './app/Esqueceu/Esqueceu'
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -20,6 +21,7 @@ export default function App() {
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Cadastro" component={Cadastro} />
+        <Stack.Screen name="Esqueceu" component={Esqueceu} />
       </Stack.Navigator>
     </NavigationContainer>
   );
