@@ -15,6 +15,9 @@ const LoginPage = () => {
   const navigation = useNavigation<NavigationProp>();
 
   // Função de login
+  const Home = ()=>{
+    navigation.navigate('HomeTabs');
+  }
   const login = async () => {
     
     try {
@@ -29,9 +32,10 @@ const LoginPage = () => {
         }),
       });
       const data = await response.json();
+      console.log(data)
       if (response.status === 201) {
         // Navegar para a tela Home
-        navigation.navigate("Home");
+        navigation.navigate('HomeTabs');
       } else {
         console.log('Erro:', response.status);
       }
@@ -71,7 +75,7 @@ const LoginPage = () => {
 ) => navigation.navigate('Esqueceu')}>
   <Text style={styles.forgotPasswordText}>Esqueceu a senha?</Text>
 </TouchableOpacity>
-      <Button title="Entrar" onPress={login} color="#000" />
+      <Button title="Entrar" onPress={Home} color="#000" />
       <View style={styles.dividerContainer}>
         <View style={styles.divider} />
         <Text style={styles.or}>ou</Text>

@@ -9,12 +9,10 @@ const CadastroPage = ({ navigation }) => {
   const [password, setPassword] = useState('');
 
   const handleRegister = async () => {
-    const url = 'http://localhost:3000/v0/singup';
+    const url = 'http://192.168.160.1:3000/v0/singup';
      // Substitua pela sua URL de cadastro
-
     try {
       const response = await  fetch(url, {
-        
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -25,8 +23,9 @@ const CadastroPage = ({ navigation }) => {
           password,
         }),
       });
-
-      console.log(response); // Adicionado para depuração
+      console.log('Response data:');
+      const data = await response.json(); // Tente obter a resposta JSON
+      console.log('Response data:', data); // Adicionado para depuração
 
       if (response.status === 200 || response.status === 201) {
         // Se a requisição for bem-sucedida
@@ -74,6 +73,7 @@ const CadastroPage = ({ navigation }) => {
         onPress={() => {
           if (nome !== '' && email !== '' && password !== '') {
             handleRegister(); // Chama a função de cadastro
+            console.log(nome)
           } else {
             console.log('Preencha todos os campos');
           }

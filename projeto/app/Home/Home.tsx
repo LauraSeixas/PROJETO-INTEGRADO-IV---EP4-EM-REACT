@@ -1,10 +1,47 @@
 import React from 'react';
 import { View, Text, ScrollView, Image, TouchableOpacity, StyleSheet, ViewBase} from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+
+import { Cards } from '../../component/cards';
 
 
+const Doutores = [
+  {
+    id:0,
+    name:"Dr. Mozar",
+    Professional:"Psiquiatra",
+    assessment: 5,
+    address:"av quiteria oliveira lima 430 Ceara"
+  },
+  {
+    id:1,
+    name:"Dr. Fernando",
+    Professional:"Psiquiatra",
+    assessment: 4,
+    address:"av quiteria oliveira lima 430 Ceara"
+
+  },
+  {
+    id:2,
+    name:"Dra.Laura",
+    Professional:"Psiquiatra",
+    assessment: 5,
+    address:"av quiteria oliveira lima 430 Ceara"
+
+  },
+  {
+    id:3,
+    name:"Dr. Osvaldo",
+    Professional:"Psiquiatra",
+    assessment: 4,
+    address:"av quiteria oliveira lima 430 Ceara"
+
+  }
+]
 
 const HomeScreen = () =>{
+
+    const ImagemCard = require("../../assets/images/Medicine-cuate1.png")
+    const ArrowRight = require("../../assets/images/arrowRight.png")
     return (
       <ScrollView style={styles.container}>
         <View style={styles.header}>
@@ -13,75 +50,30 @@ const HomeScreen = () =>{
         </View>
   
         <View style={styles.card}>
+          <View style={styles.EsquerdaCard}>
+              <Image source={ImagemCard} style={styles.ImagemCard}/>
+          </View>
+          <View style={styles.direita}>
+
           <Text style={styles.cardTitle}>Como você se sente?</Text>
           <Text style={styles.cardSubtitle}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Text>
-          <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText}>Encontre um médico</Text>
-            <Icon name="arrow-forward-ios" size={20} color="#FFF" />
-          </TouchableOpacity>
+          <View style={styles.DivButtons}>
+            <TouchableOpacity style={styles.button}>
+              <Text style={styles.buttonText}>Encontre um médico</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.button}>
+            <Image source={ArrowRight} /> 
+            </TouchableOpacity>
+          </View>
+          </View>
         </View>
-        <View style={styles.dividerContainer}>
-        <View style={styles.divider} />
-        <View style={styles.divider} />
-        </View>
+        <View style={styles.HeaderDoctors}>
         <Text style={styles.sectionTitle}>Médicos disponíveis</Text>
-        <TouchableOpacity style={styles.doctorCard}>
-          <Image source={{ uri: 'https://your-image-url.com/doctor.jpg' }} style={styles.doctorImage} />
-          <View style={styles.doctorInfo}>
-            <Text style={styles.doctorName}>Dra. Fulana Beltrana</Text>
-            <Text style={styles.doctorSpecialty}>Psiquiatra</Text>
-            <Text style={styles.doctorRating}>⭐️ 4.8 - 2100 avaliações</Text>
-            <TouchableOpacity style={styles.scheduleButton}>
-              <Text style={styles.scheduleButtonText}>Agendar consulta</Text>
-            </TouchableOpacity>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.doctorCard}>
-          <Image source={{ uri: 'https://your-image-url.com/doctor.jpg' }} style={styles.doctorImage} />
-          <View style={styles.doctorInfo}>
-            <Text style={styles.doctorName}>Dra. Fulana Beltrana</Text>
-            <Text style={styles.doctorSpecialty}>Psiquiatra</Text>
-            <Text style={styles.doctorRating}>⭐️ 4.8 - 2100 avaliações</Text>
-            <TouchableOpacity style={styles.scheduleButton}>
-              <Text style={styles.scheduleButtonText}>Agendar consulta</Text>
-            </TouchableOpacity>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.doctorCard}>
-          <Image source={{ uri: 'https://your-image-url.com/doctor.jpg' }} style={styles.doctorImage} />
-          <View style={styles.doctorInfo}>
-            <Text style={styles.doctorName}>Dra. Fulana Beltrana</Text>
-            <Text style={styles.doctorSpecialty}>Psiquiatra</Text>
-            <Text style={styles.doctorRating}>⭐️ 4.8 - 2100 avaliações</Text>
-            <TouchableOpacity style={styles.scheduleButton}>
-              <Text style={styles.scheduleButtonText}>Agendar consulta</Text>
-            </TouchableOpacity>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.doctorCard}>
-          <Image source={{ uri: 'https://your-image-url.com/doctor.jpg' }} style={styles.doctorImage} />
-          <View style={styles.doctorInfo}>
-            <Text style={styles.doctorName}>Dra. Fulana Beltrana</Text>
-            <Text style={styles.doctorSpecialty}>Psiquiatra</Text>
-            <Text style={styles.doctorRating}>⭐️ 4.8 - 2100 avaliações</Text>
-            <TouchableOpacity style={styles.scheduleButton}>
-              <Text style={styles.scheduleButtonText}>Agendar consulta</Text>
-            </TouchableOpacity>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.doctorCard}>
-          <Image source={{ uri: 'https://your-image-url.com/doctor.jpg' }} style={styles.doctorImage} />
-          <View style={styles.doctorInfo}>
-            <Text style={styles.doctorName}>Dra. Fulana Beltrana</Text>
-            <Text style={styles.doctorSpecialty}>Psiquiatra</Text>
-            <Text style={styles.doctorRating}>⭐️ 4.8 - 2100 avaliações</Text>
-            <TouchableOpacity style={styles.scheduleButton}>
-              <Text style={styles.scheduleButtonText}>Agendar consulta</Text>
-              <Image/>
-            </TouchableOpacity>
-          </View>
-        </TouchableOpacity>
+        <Text style={styles.subtitle}>Veja Todos</Text>
+        </View>
+          {Doutores.map((d,i)=> <Cards key={i} data={d}/>)}
         {/* Repetir o TouchableOpacity para outros médicos */}
+       
       </ScrollView>
     );
   }
@@ -106,21 +98,27 @@ const HomeScreen = () =>{
       height: 50,
       borderRadius: 25,
     },
-    dividerContainer: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      marginBottom: 20,
+    EsquerdaCard:{
+      width:'40%',
+     
     },
-    divider: {
-      width: 130,
-      height: 1,
-      backgroundColor: '#D9D9D9',
+    ImagemCard:{
+      position:'absolute',
+      top:'-1%',
+      right:'5%',
+      height:130,
+      width:130
+    },
+    direita:{
+      width:'60%',
     },
     card: {
+      flexDirection:'row',
       padding: 20,
       margin: 20,
       backgroundColor: '#C8DEFB',
       borderRadius: 10,
+      
     },
     cardTitle: {
       fontSize: 16,
@@ -128,6 +126,19 @@ const HomeScreen = () =>{
     },
     cardSubtitle: {
       fontSize: 14,
+    },
+    DivButtons:{
+      flexDirection:'row'
+    },
+    HeaderDoctors:{
+      flexDirection:'row',
+      justifyContent:'space-between',
+      width:'95%'    
+    },
+    subtitle:{
+      fontSize:13,
+      fontWeight:'700',
+      color:"#BCBCBC"
     },
     sectionTitle: {
       fontSize: 16,
@@ -172,7 +183,7 @@ const HomeScreen = () =>{
     },
     button: {
       flexDirection: 'row',
-      backgroundColor: '#007BFF', // Cor do botão
+      backgroundColor: '#040404', // Cor do botão
       paddingHorizontal: 12,
       paddingVertical: 8,
       borderRadius: 20,
@@ -182,11 +193,10 @@ const HomeScreen = () =>{
     },
     buttonText: {
       color: '#FFF',
-      fontSize: 16,
+      fontSize: 12,
       marginRight: 5,
-    },
-
-
+    }
+   
 });
 
 export default HomeScreen;
