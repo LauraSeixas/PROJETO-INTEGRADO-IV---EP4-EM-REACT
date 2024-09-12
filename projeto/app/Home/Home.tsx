@@ -40,13 +40,15 @@ const Doutores = [
 
 const HomeScreen = () =>{
 
+    const Avatar = require("../../assets/images/Avatar.png")
     const ImagemCard = require("../../assets/images/Medicine-cuate1.png")
     const ArrowRight = require("../../assets/images/arrowRight.png")
     return (
       <ScrollView style={styles.container}>
         <View style={styles.header}>
           <Text style={styles.headerText}>Olá, Fulana Beltrana</Text>
-          <Image source={{ uri: 'https://your-image-url.com/avatar.jpg' }} style={styles.avatar} />
+          <Image source={Avatar}style={styles.avatar}/>
+          
         </View>
   
         <View style={styles.card}>
@@ -84,17 +86,20 @@ const HomeScreen = () =>{
       backgroundColor: '#fff',
     },
     header: {
+      width:'100%',
       flexDirection: 'row',
       justifyContent: 'space-between',
       alignItems: 'center',
-      padding: 20,
+      backgroundColor: '#fff',
+      padding: 10,
+      borderRadius: 8,
     },
     headerText: {
       fontSize: 18,
       fontWeight: 'bold',
     },
-    avatar: {
-      width: 50,
+    Avatar: {
+      width: 100,
       height: 50,
       borderRadius: 25,
     },

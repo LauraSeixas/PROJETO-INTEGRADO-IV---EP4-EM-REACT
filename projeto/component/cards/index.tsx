@@ -29,7 +29,7 @@ export const Cards: React.FC<CardProps> = ({data})=>{
                 <View style={styles.esquerda}>
                     <Text style={styles.title}>{data.name}</Text>
                     <Text style={styles.subtitle}>{data.Professional}</Text>
-                    <Text >{data.assessment}</Text>
+                    <Text >{data.assessment}⭐</Text>
                     <Text style={styles.p}>Endereço</Text>
                     <View style={styles.divisor}></View>
                     <Text style={styles.p}>{data.address}</Text>
@@ -128,16 +128,17 @@ const styles = StyleSheet.create({
     },
     button:{
         backgroundColor:"#FFE653",
-        borderRadius:10,
+        borderRadius:5,
         flex:1,
         width:200,
         height:35,
         alignItems:"center",
         justifyContent:"center",
-
+        
     },
+
     buttonText:{
-        fontSize:15,
+        fontSize:20,
           color:'#000'
     }
 
