@@ -79,11 +79,11 @@ const LoginPage = () => {
         </TouchableOpacity>
       </View>
 
-      <TouchableOpacity style={styles.forgotPasswordContainer}>
+      <TouchableOpacity style={styles.forgotPasswordContainer} onPress={() => navigation.navigate('Esqueceu')}>
         <Text style={styles.forgotPassword}>esqueceu a senha?</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.btn} onPress={login}>
+      <TouchableOpacity style={styles.btn} onPress={Home}>
         <Text style={styles.btnText}>Entrar</Text>
       </TouchableOpacity>
 
