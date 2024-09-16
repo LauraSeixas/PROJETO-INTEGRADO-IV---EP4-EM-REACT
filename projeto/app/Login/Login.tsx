@@ -19,7 +19,13 @@ const LoginPage = () => {
     navigation.navigate('HomeTabs');
   }
   const login = async () => {
-    
+      
+    // Verificar se os campos de email e senha estão preenchidos
+    if (!email || !password) {
+      Alert.alert('Erro', 'Preencha todos os campos antes de prosseguir.');
+      return;
+    }
+      
     try {
       const response = await fetch('http://localhost:3000/v0/singin', {
         method: 'POST',
