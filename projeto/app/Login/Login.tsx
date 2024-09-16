@@ -4,6 +4,7 @@ import { View, Text, TextInput, Button, Image, TouchableOpacity, StyleSheet } fr
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../../types';
+import { Snackbar, IconButton } from "react-native-paper";
 
 type NavigationProp = StackNavigationProp<RootStackParamList>;
 // Componente de tela de login
@@ -18,6 +19,7 @@ const LoginPage = () => {
   const Home = ()=>{
     navigation.navigate('HomeTabs');
   }
+
   const login = async () => {
     
     try {
@@ -43,48 +45,65 @@ const LoginPage = () => {
       console.error('Erro:', error);
     }
   };
-  const img = require('../../assets/images/Mobilelogincuate.png')
+  const img = require('../../assets/images/Mobile-login-cuate.svg')
   return (
     <View style={styles.container}>
       <Text style={styles.title}>MindDoc+</Text>
-      <Image
-        source={img}
-        style={styles.image}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Email"
-        keyboardType="email-address"
-        value={email}
-        onChangeText={setEmail}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Password"
-        secureTextEntry={!passwordVisible}
-        value={password}
-        onChangeText={setPassword}
-      />
-      <TouchableOpacity onPress={() => setPasswordVisible(!passwordVisible)}>
-        <Text style={styles.togglePassword}>
-        {passwordVisible ? 'Esconder a senha' : 'Mostrar a senha'}
-        </Text>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={(
+      <Image source={img} style={styles.image} />
 
-) => navigation.navigate('Esqueceu')}>
-  <Text style={styles.forgotPasswordText}>Esqueceu a senha?</Text>
-</TouchableOpacity>
-      <Button title="Entrar" onPress={Home} color="#000" />
+      <View style={styles.inputContainer}>
+        <IconButton icon="email" style={styles.icon} />
+        <TextInput
+          style={styles.input}
+          placeholder="Email"
+          keyboardType="email-address"
+          value={email}
+          onChangeText={setEmail}
+        />
+      </View>
+      <View style={styles.inputContainer}>
+        <IconButton icon="lock" style={styles.icon} />
+        <TextInput
+          style={styles.input}
+          placeholder="Password"
+          secureTextEntry={!passwordVisible}
+          value={password}
+          onChangeText={setPassword}
+        />
+        <TouchableOpacity 
+          onPress={() => setPasswordVisible(!passwordVisible)} 
+          style={styles.togglePassword} 
+          testID="toggle-password-visibility"
+        >
+          <IconButton icon={passwordVisible ? "eye-off" : "eye"} />
+        </TouchableOpacity>
+      </View>
+
+      <TouchableOpacity style={styles.forgotPasswordContainer}>
+        <Text style={styles.forgotPassword}>esqueceu a senha?</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.btn} onPress={login}>
+        <Text style={styles.btnText}>Entrar</Text>
+      </TouchableOpacity>
+
       <View style={styles.dividerContainer}>
         <View style={styles.divider} />
         <Text style={styles.or}>ou</Text>
         <View style={styles.divider} />
       </View>
+
       <TouchableOpacity style={styles.googleButton} onPress={() => console.log('entrei pelo google')}>
-        
+        <IconButton icon="google" style={styles.icon}/>
         <Text style={styles.googleButtonText}>Continuar com o Google</Text>
       </TouchableOpacity>
+    
+      <TouchableOpacity onPress={() => navigation.navigate("Cadastro")} style={styles.registerContainer}>
+        <Text style={styles.noAccountText}>
+          Ainda não tem conta? <Text style={styles.registerText}>Faça seu cadastro!</Text>
+        </Text>
+      </TouchableOpacity>
+
     </View>
   );
 };
@@ -96,36 +115,55 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 16,
+    backgroundColor: '#FFF',
   },
   title: {
     fontSize: 26,
     fontWeight: '700',
     color: '#000',
-    marginBottom: 20,
+    marginBottom: 15,
   },
   image: {
     width: 320,
     height: 320,
     marginBottom: 20,
   },
-  input: {
-    width: 320,
-    height: 50,
-    borderColor: 'grey',
+  inputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: 291,
+    height: 38,
     borderBottomWidth: 1,
+    borderBottomColor: '#CCC',
+    backgroundColor: '#FFF',
     marginBottom: 10,
+  },
+  input: {
+    flex: 1,
+    height: '100%',
     paddingHorizontal: 8,
   },
+  icon: {
+    marginHorizontal: 8,
+  },
   togglePassword: {
+    marginHorizontal: 8,
+  },
+  togglePasswordText: {
     color: 'blue',
     marginBottom: 10,
   },
-  forgotPasswordText: {
-    color: 'black',
+  forgotPasswordContainer: {
+    width: 321, 
+    flexShrink: 0,
+    alignItems: 'flex-end',
+    marginBottom: 30,
+    marginRight: 30,
+  },
+  forgotPassword: {
+    color: '#025AC2',
     fontSize: 13,
-    fontWeight: '300',
-    alignSelf: 'flex-end',
-    marginBottom: 20,
+    fontWeight: '400',
   },
   dividerContainer: {
     flexDirection: 'row',
@@ -146,14 +184,44 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#CCCCCC',
     padding: 10,
+    width: 321, 
+    height: 40, 
+    flexShrink: 0,
     borderRadius: 8,
-    width: 320,
+  },
+  btn: {
+    backgroundColor: '#263238',
+    padding: 10,
+    width: 321, 
+    height: 40, 
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 8,
+    marginBottom: 20,
+  },
+  btnText: {
+    color: '#FFF',
+    fontWeight: '400',
+    fontSize: 16,
   },
   googleButtonText: {
     color: '#000',
-    fontWeight: '700',
+    fontWeight: '400',
     fontSize: 14,
     marginLeft: 10,
+  },
+   registerContainer: {
+    marginTop: 20,
+  },
+  noAccountText: {
+    color: '#222221',
+    fontSize: 14,
+    fontWeight: '400',
+  },
+  registerText: {
+    color: '#025AC2',
+    fontSize: 14,
+    fontWeight: '500',
   },
 });
 
