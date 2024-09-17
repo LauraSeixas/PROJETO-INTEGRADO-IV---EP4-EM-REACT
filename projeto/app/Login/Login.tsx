@@ -84,7 +84,7 @@ const LoginPage = () => {
       </TouchableOpacity>
 
       <TouchableOpacity style={styles.btn} onPress={Home}>
-        <Text style={styles.btnText}>Entrar</Text>
+        <Text style={styles.btnText}>Login</Text>
       </TouchableOpacity>
 
       <View style={styles.dividerContainer}>

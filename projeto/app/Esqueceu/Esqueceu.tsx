@@ -54,12 +54,14 @@ const Esqueceu = () => {
         keyboardType="email-address"
         value={email}
         onChangeText={setEmail}
+        testID="Email" 
       />
       
       <Button 
       title="Enviar" 
       onPress={login}
       color={'#000'}
+      testID="Enviar"
       />
       
       <TouchableOpacity>
