@@ -47,7 +47,7 @@ const HomeScreen = () =>{
       <ScrollView style={styles.container}>
         <View style={styles.header}>
           <Text style={styles.headerText}>Olá, Fulana Beltrana</Text>
-          <Image source={Avatar}style={styles.avatar}/>
+          <Image source={Avatar} style={styles.avatar}/>
           
         </View>
   
