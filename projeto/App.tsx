@@ -25,6 +25,7 @@ export default function App() {
         <Stack.Screen name="Entrar" component={EntrarPage} options={{ headerShown: false }}/>
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Esqueceu" component={Esqueceu} />
         <Stack.Screen name="Cadastro" component={Cadastro} />
         <Stack.Screen name="Agendar" component={Agendar} />
         <Stack.Screen name="HomeTabs" component={TabNavigator}  options={{ headerShown: false }}/>

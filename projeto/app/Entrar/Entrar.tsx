@@ -25,7 +25,7 @@ export default function EntrarPage() {
         style={styles.loginButton}
         onPress={() => navigation.navigate('Login')} // Navega para a tela de Login
       >
-        <Text style={styles.loginButtonText}>Entrar</Text>
+        <Text style={styles.loginButtonText}>Login</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.signupButton}
