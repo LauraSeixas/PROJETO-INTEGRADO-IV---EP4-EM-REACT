@@ -225,11 +225,11 @@ const Agendar = ()=>{
                     </View>
                   
                     {/* Adicione botões e campos de agendamento aqui */}
-                    <TouchableOpacity onPress={HandleAgendar}>
-                        <Text>Confirmar</Text>
+                    <TouchableOpacity style={styles.ConfirmButton} onPress={HandleAgendar}>
+                        <Text style={styles.txtConfirm}>Confirmar</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={closeModal}>
-                        <Text>Cancelar</Text>
+                    <TouchableOpacity style={styles.CancelButton} onPress={closeModal}>
+                        <Text style={styles.txtCancel}>Cancelar</Text>
                     </TouchableOpacity>
                     
                 </View>
@@ -377,6 +377,25 @@ const styles = StyleSheet.create({
       pModal:{
         fontWeight:'300',
         fontSize:12,
+      },
+      ConfirmButton:{
+        width:'200px',
+        padding: '10px', 
+        border: '2px solid black',
+        backgroundColor: '#FF725E', 
+        borderRadius: '10px',
+        alignItems:'center',
+      },
+      txtConfirm:{
+        color:'white',
+      },
+      CancelButton:{
+        width:'200px',
+        padding: '10px', 
+        border: '2px solid black',
+        borderRadius:'10px',
+        alignItems:'center',
+        marginTop:'10px',
       },
     
 })

@@ -4,6 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from "../../types";
 
+
 type NavigationProp = StackNavigationProp<RootStackParamList>;
 
 interface CardProps {
@@ -99,7 +100,7 @@ const styles = StyleSheet.create({
         fontSize:12
     },
     direita:{
-        backgroundColor:'#FEF7CD',
+        backgroundColor:,
         height:'100%',
         alignItems:'center',
         justifyContent:'center',
@@ -127,19 +128,21 @@ const styles = StyleSheet.create({
 
     },
     button:{
+        padding:7,
         backgroundColor:"#FFE653",
         borderRadius:5,
         flex:1,
         width:200,
-        height:35,
+        height:50,
         alignItems:"center",
         justifyContent:"center",
         
     },
 
     buttonText:{
+        fontFamily:'arial',
         fontSize:20,
-          color:'#000'
+        color:'#000'
     }
 
 })
