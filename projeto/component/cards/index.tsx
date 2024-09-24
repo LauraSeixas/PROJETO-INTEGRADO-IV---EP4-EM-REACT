@@ -19,7 +19,7 @@ interface CardProps {
 
 export const Cards: React.FC<CardProps> = ({data,minhasConsultas})=>{
     const navigation = useNavigation<NavigationProp>();
-    
+
     const  HandleAgendar = (doctor:any)=>{
         navigation.navigate("Agendar",{doctor})
     }
@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
         fontSize:12
     },
     direita:{
-        backgroundColor:'#ff4',
+        backgroundColor:'#C8DEFB',
         height:'100%',
         alignItems:'center',
         justifyContent:'center',

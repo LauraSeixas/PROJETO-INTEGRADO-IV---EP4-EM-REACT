@@ -9,6 +9,8 @@ import { RootStackParamList } from './types';
 import Agendar from './app/Agendar/Agendar';
 import MinhasConsultas from './app/MinhasConsultas/minhaConsulta';
 import Perfil from './app/Perfil/Perfil';
+import { Entypo,Feather } from '@expo/vector-icons';
+import { color } from 'react-native-elements/dist/helpers';
 
 const Tab = createBottomTabNavigator<RootStackParamList>();
 
@@ -21,13 +23,43 @@ const TabNavigator = () => {
       borderTopWidth: 0,
       elevation: 0, // Remove sombra no Android
     },
-    tabBarActiveTintColor: '#6200ee',
+
+    tabBarActiveTintColor: '#C8DEFB',
     tabBarInactiveTintColor: '#gray',
   }}
   >
-    <Tab.Screen name="Home" component={HomeScreen} />
-    <Tab.Screen name="MinhasConsultas" component={MinhasConsultas}/>
-    <Tab.Screen name="Perfil" component={Perfil}/>
+    <Tab.Screen 
+    name="Home" 
+    component={HomeScreen} 
+    options={{
+      tabBarIcon:({size,color }) => (
+        <Entypo name="home" size={size} color={color}/>
+
+      )
+    }}
+    />
+
+    <Tab.Screen 
+    name="Minhas Consultas" 
+    component={MinhasConsultas}
+    options={{
+      tabBarIcon:({size,color }) => (
+        <Feather name="calendar" size={size} color={color}/>
+
+      )
+    }}
+    />
+
+    <Tab.Screen 
+    name="Perfil" 
+    component={Perfil}
+    options={{
+      tabBarIcon:({size,color }) => (
+        <Feather name="user" size={size} color={color}/>
+
+      )
+    }}
+    />
     {/*<Tab.Screen name="Agendar" component={Agendar} />
     <Tab.Screen name="Profile" component={ProfileScreen} />*/}
   </Tab.Navigator>
