@@ -39,7 +39,7 @@ const Doutores = [
 
 
 const HomeScreen = () =>{
-
+    
     const Avatar = require("../../assets/images/Avatar.png")
     const ImagemCard = require("../../assets/images/Medicine-cuate1.png")
     const ArrowRight = require("../../assets/images/arrowRight.png")

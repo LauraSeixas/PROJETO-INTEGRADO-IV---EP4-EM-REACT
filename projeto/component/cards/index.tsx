@@ -42,18 +42,11 @@ export const Cards: React.FC<CardProps> = ({data,minhasConsultas})=>{
                     </View>
                 </View>
             </View>
-            {minhasConsultas?
-            <View style={styles.footerMinhasConsultas}>
-<><TouchableOpacity style={styles.buttonReagendar} onPress={() => HandleReagendar(data)}>
-                <Text style={styles.buttonText}>Reagendar Consulta</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.buttonCancelar} onPress={() => HandleCancelar(data)}>
-                <Text style={styles.buttonText}>Cancelar Consulta</Text>
-                </TouchableOpacity></> </View>
-                :
+           
                 <View style={styles.footer}><TouchableOpacity style={styles.buttonAgendar} onPress={() => HandleAgendar(data)}>
                 <Text style={styles.buttonText}>Agendar Consulta</Text>
-                </TouchableOpacity></View>}
+                </TouchableOpacity>
+                </View>
         </View>
     )
 }
