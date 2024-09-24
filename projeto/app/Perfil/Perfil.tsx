@@ -3,46 +3,10 @@ import { View, Text, ScrollView, Image, TouchableOpacity, StyleSheet, ViewBase} 
 import { Cards } from '../../component/cards';
 
 
-const Doutores = [
-  {
-    id:0,
-    name:"Dr. Mozar",
-    Professional:"Psiquiatra",
-    assessment: 5,
-    address:"av quiteria oliveira lima 430 Ceara"
-  },
-  {
-    id:1,
-    name:"Dr. Fernando",
-    Professional:"Psiquiatra",
-    assessment: 4,
-    address:"av quiteria oliveira lima 430 Ceara"
 
-  },
-  {
-    id:2,
-    name:"Dra.Laura",
-    Professional:"Psiquiatra",
-    assessment: 5,
-    address:"av quiteria oliveira lima 430 Ceara"
-
-  },
-  {
-    id:3,
-    name:"Dr. Osvaldo",
-    Professional:"Psiquiatra",
-    assessment: 4,
-    address:"av quiteria oliveira lima 430 Ceara"
-
-  }
-]
-
-
-const HomeScreen = () =>{
+const Perfil = () =>{
 
     const Avatar = require("../../assets/images/Avatar.png")
-    const ImagemCard = require("../../assets/images/Medicine-cuate1.png")
-    const ArrowRight = require("../../assets/images/arrowRight.png")
     return (
       <ScrollView style={styles.container}>
         <View style={styles.header}>
@@ -53,32 +17,10 @@ const HomeScreen = () =>{
           <Image source={Avatar} style={styles.Avatar}/>
           
         </View>
-  
-        <View style={styles.card}>
-          <View style={styles.EsquerdaCard}>
-              <Image source={ImagemCard} style={styles.ImagemCard}/>
-          </View>
-          <View style={styles.direita}>
-
-          <Text style={styles.cardTitle}>Como você se sente?</Text>
-          <Text style={styles.cardSubtitle}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Text>
-          <View style={styles.DivButtons}>
-            <TouchableOpacity style={styles.button}>
-              <Text style={styles.buttonText}>Encontre um médico</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.button}>
-            <Image source={ArrowRight} /> 
-            </TouchableOpacity>
-          </View>
-          </View>
-        </View>
         <View style={styles.HeaderDoctors}>
-        <Text style={styles.sectionTitle}>Médicos disponíveis</Text>
+        <Text style={styles.sectionTitle}>Suas Consultas</Text>
         <Text style={styles.subtitle}>Veja Todos</Text>
         </View>
-          {Doutores.map((d,i)=> <Cards key={i} minhasConsultas={false} data={d}/>)}
-        {/* Repetir o TouchableOpacity para outros médicos */}
-        
       </ScrollView>
     );
   }
@@ -207,4 +149,4 @@ const HomeScreen = () =>{
    
 });
 
-export default HomeScreen;
+export default Perfil;

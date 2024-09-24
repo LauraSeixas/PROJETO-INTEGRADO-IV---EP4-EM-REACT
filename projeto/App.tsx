@@ -10,6 +10,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import Esqueceu from './app/Esqueceu/Esqueceu'
 import TabNavigator from './TabNavigator';
 import Agendar from './app/Agendar/Agendar';
+import MinhasConsultas from './app/MinhasConsultas/minhaConsulta';
 
 
 
@@ -29,6 +30,7 @@ export default function App() {
         <Stack.Screen name="Cadastro" component={Cadastro} />
         <Stack.Screen name="Agendar" component={Agendar} />
         <Stack.Screen name="HomeTabs" component={TabNavigator}  options={{ headerShown: false }}/>
+        <Stack.Screen name="MinhasConsultas" component={MinhasConsultas} />
       </Stack.Navigator>
     </NavigationContainer>
   );

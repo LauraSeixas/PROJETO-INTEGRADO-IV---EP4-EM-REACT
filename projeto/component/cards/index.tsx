@@ -14,11 +14,12 @@ interface CardProps {
       assessment: string;
       address: string;
     };
+    minhasConsultas:boolean
   }
 
-export const Cards: React.FC<CardProps> = ({data})=>{
+export const Cards: React.FC<CardProps> = ({data,minhasConsultas})=>{
     const navigation = useNavigation<NavigationProp>();
-
+    
     const  HandleAgendar = (doctor:any)=>{
         navigation.navigate("Agendar",{doctor})
     }
@@ -41,12 +42,18 @@ export const Cards: React.FC<CardProps> = ({data})=>{
                     </View>
                 </View>
             </View>
-            <View style={styles.footer}>
-                <TouchableOpacity style={styles.button} onPress={() => HandleAgendar(data)}>
-                <Text style={styles.buttonText}>Agendar Consulta</Text>
+            {minhasConsultas?
+            <View style={styles.footerMinhasConsultas}>
+<><TouchableOpacity style={styles.buttonReagendar} onPress={() => HandleReagendar(data)}>
+                <Text style={styles.buttonText}>Reagendar Consulta</Text>
                 </TouchableOpacity>
-                
-            </View>
+                <TouchableOpacity style={styles.buttonCancelar} onPress={() => HandleCancelar(data)}>
+                <Text style={styles.buttonText}>Cancelar Consulta</Text>
+                </TouchableOpacity></> </View>
+                :
+                <View style={styles.footer}><TouchableOpacity style={styles.buttonAgendar} onPress={() => HandleAgendar(data)}>
+                <Text style={styles.buttonText}>Agendar Consulta</Text>
+                </TouchableOpacity></View>}
         </View>
     )
 }
@@ -72,7 +79,6 @@ const styles = StyleSheet.create({
         width:'100%',
         margin:'auto',
         justifyContent:"space-between",
-       
         alignItems:'center',
         
     },
@@ -100,7 +106,7 @@ const styles = StyleSheet.create({
         fontSize:12
     },
     direita:{
-        backgroundColor:,
+        backgroundColor:'#ff4',
         height:'100%',
         alignItems:'center',
         justifyContent:'center',
@@ -120,29 +126,57 @@ const styles = StyleSheet.create({
     footer:{
         
         position:'absolute',
-       
         top:"75%",
         right:'15%',
         
       
 
     },
-    button:{
+    
+    buttonAgendar:{
         padding:7,
         backgroundColor:"#FFE653",
         borderRadius:5,
-        flex:1,
-        width:200,
-        height:50,
-        alignItems:"center",
+        shadowRadius: 4,
+        width:150,
+        height:40,
+        alignItems:'center',
         justifyContent:"center",
         
     },
+    footerMinhasConsultas:{
+        position:'absolute',
+        top:"68%",
+        flexDirection:'row',
+        gap:40,
+        padding: 10,
+    },
+    buttonReagendar:{
+        padding:7,
+        backgroundColor:"#FF725E",
+        borderRadius:5,
+        flex:1,
+        shadowRadius: 4,
+        width:150,
+        height:40,
+        alignItems:"center",
+        justifyContent:"center",
 
+    },
+    buttonCancelar:{
+        padding:7,
+        backgroundColor:"#FFE",
+        borderRadius:5,
+        flex:1,
+        shadowRadius: 4,
+        width:150,
+        height:40,
+        alignItems:"center",
+        justifyContent:"center",
+    },
     buttonText:{
-        fontFamily:'arial',
-        fontSize:20,
+        fontSize:15,
         color:'#000'
-    }
+    },
 
 })
