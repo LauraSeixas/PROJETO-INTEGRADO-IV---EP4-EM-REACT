@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
         fontSize:12
     },
     direita:{
-        backgroundColor:,
+        backgroundColor:"#fff",
         height:'100%',
         alignItems:'center',
         justifyContent:'center',
