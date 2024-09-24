@@ -397,6 +397,8 @@ const styles = StyleSheet.create({
         alignItems:'center',
         marginTop:'10px',
       },
-    
+    txtCancel:{
+        color:'Black',
+    },
 })
 export default Agendar;
